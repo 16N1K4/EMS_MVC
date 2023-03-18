@@ -1,0 +1,30 @@
+﻿@model List<Department>
+
+
+<h3 align="center">Departments List</h3>
+
+<a class="btn btn-success" asp-action="AddDepartment" asp-controller="Department">Add Department</a>
+
+<table class="table table-striped table-info">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Dept in Model)
+        {
+            <tr>
+                <th scope="row">@Dept.ID</th>
+                <td>@Dept.Name</td>
+                <td><a class="btn btn-primary" asp-controller="Department" asp-action="ViewOneDepartment" asp-route-id="@Dept.ID">View</a></td>
+                <td><a class="btn btn-warning" asp-controller="Department" asp-action="UpdateDepartment" asp-route-id="@Dept.ID">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Department" asp-action="DeleteDepartment" asp-route-id="@Dept.ID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

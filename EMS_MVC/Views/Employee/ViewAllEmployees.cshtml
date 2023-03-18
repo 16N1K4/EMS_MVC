@@ -1,0 +1,38 @@
+﻿@model List<Employee>
+
+
+<h3 align="center">Employees List</h3>
+
+<a class="btn btn-success" asp-action="AddEmployee" asp-controller="Employee">Add Employee</a>
+
+<table class="table table-striped table-info">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Emp in Model)
+        {
+            <tr>
+                <th scope="row">@Emp.ID</th>
+                <td>@Emp.Name</td>
+                <td>@Emp.DateOfBirth</td>
+                <td>@Emp.Email</td>
+                <td>@Emp.Phone</td>
+                <td>@Emp.Department.Name</td>
+                <td><a class="btn btn-primary" asp-controller="Employee" asp-action="ViewOneEmployee" asp-route-id="@Emp.ID">View</a></td>
+                <td><a class="btn btn-warning" asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@Emp.ID">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@Emp.ID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

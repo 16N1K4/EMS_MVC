@@ -1,0 +1,33 @@
+﻿@model Employee
+
+<h3 align="center"> Add Employee</h3>
+
+<form method="post" asp-action="AddEmployee" asp-controller="Employee">
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="DateOfBirth">Date of Birth</label>
+        <input type="date" class="form-control" asp-for="DateOfBirth" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Email">Email Address</label>
+        <input type="email" class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Phone">Phone Number (Mobile)</label>
+        <input class="form-control" asp-for="Phone" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <label class="form-label" asp-for="DepartmentID">Department</label>
+    @Html.DropDownListFor(x => x.DepartmentID, new SelectList(ViewBag.Departments, "ID", "Name"), new {@class = "form-control"})
+    <span asp-validation-for="DepartmentID" class="text-danger"></span>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
