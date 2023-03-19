@@ -22,6 +22,15 @@
     <tbody>
         @foreach (var Emp in Model)
         {
+            /*string deptname = "";
+            int counter = 0;
+            foreach(var item in ViewBag.Departments)
+            {
+                if(Emp.ID == ViewBag.Departments[counter].ID){
+                    deptname = ViewBag.Departments[counter].Name;
+                }
+                counter++;
+            }*/
             <tr>
                 <th scope="row">@Emp.ID</th>
                 <td>@Emp.Name</td>

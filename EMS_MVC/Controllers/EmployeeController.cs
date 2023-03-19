@@ -8,6 +8,8 @@ namespace EMS_MVC.Controllers
     {
 
         IEMSRepoEmployee _repo;
+        //IRepoEmpInMemory _repoEmp;
+        //IRepoDeptInMemory _repoDept;
 
         public EmployeeController(IEMSRepoEmployee repo)
         {

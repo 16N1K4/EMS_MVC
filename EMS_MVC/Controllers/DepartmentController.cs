@@ -7,6 +7,8 @@ namespace EMS_MVC.Controllers
     public class DepartmentController : Controller
     {
         IEMSRepoDepartment _repo;
+        //IRepoDeptInMemory _repoDept;
+        //IRepoEmpInMemory _repoEmp;
 
         public DepartmentController(IEMSRepoDepartment repo)
         {

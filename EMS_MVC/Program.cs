@@ -5,11 +5,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//SQL Database
 builder.Services.AddDbContext<EMSContext>();
 
 builder.Services.AddScoped<EMSContext, EMSContext>();
 builder.Services.AddScoped<IEMSRepoEmployee, EMSRepoEmployee>();
 builder.Services.AddScoped<IEMSRepoDepartment, EMSRepoDepartment>();
+
+//In-Memory Database
+builder.Services.AddSingleton<IRepoEmpInMemory, RepoEmpInMemory>();
+builder.Services.AddSingleton<IRepoDeptInMemory, RepoDeptInMemory>();
 
 var app = builder.Build();
 
